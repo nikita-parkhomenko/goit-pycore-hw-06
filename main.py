@@ -21,7 +21,7 @@ class Phone(Field):
             raise ValueError("Phone number must be 10 digits.")
         super().__init__(value)
 
-    def validate(value):
+    def validate(self, value):
         return bool(re.fullmatch(r"\d{10}", value))
 
 
@@ -67,7 +67,7 @@ class AddressBook(UserDict):
 
 # Example usage
 if __name__ == "__main__":
-    # Creating a new address book
+    # Створення нової адресної книги
     book = AddressBook()
 
     # Створення запису для John
@@ -99,6 +99,3 @@ if __name__ == "__main__":
 
     # Видалення запису Jane
     book.delete("Jane")
-    print("After deleting Jane:")
-    for name, record in book.data.items():
-        print(record)
